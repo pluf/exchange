@@ -1,0 +1,45 @@
+{
+	"name" : "pluf/exchange",
+	"version" : "4.0.4",
+	"description" : "A pluf module to online currency exchange",
+	"type" : "library",
+	"license" : "MIT",
+	"authors" : [{
+			"name" : "Mostafa Barmshory",
+			"email" : "mostafa.barmshory@dpq.co.ir",
+			"homepage" : "http://dpq.co.ir",
+			"role" : "developer"
+		}, {
+			"name" : "Mohammad Hadi Mansouri",
+			"email" : "mohammad.hadi.mansouri@dpq.co.ir",
+			"homepage" : "http://dpq.co.ir",
+			"role" : "developer"
+		}
+	],
+	"minimum-stability" : "stable",
+	"require" : {
+		"pluf/core" : "^4.0.0",
+		"pluf/user" : "^4.0.0",
+		"pluf/bank" : "^4.0.0"
+	},
+	"require-dev" : {
+		"pluf/test" : "^4.0.0"
+	},
+	"include-path" : [
+		"src/"
+	],
+	"homepage" : "https://github.com/pluf/exchange",
+	"support" : {
+		"email" : "info@pluf.ir",
+		"issues" : "https://github.com/pluf/exchange/issues",
+		"forum" : "https://github.com/pluf/exchange",
+		"wiki" : "https://github.com/pluf/exchange/wiki",
+		"source" : "https://github.com/pluf/exchange"
+	},
+	"keywords" : [
+		"pluf",
+		"php",
+		"pluf-module",
+		"exchange"
+	]
+}
