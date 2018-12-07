@@ -1,6 +1,5 @@
 {
 	"name" : "pluf/exchange",
-	"version" : "4.0.4",
 	"description" : "A pluf module to online currency exchange",
 	"type" : "library",
 	"license" : "MIT",
