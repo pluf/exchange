@@ -60,6 +60,16 @@ class Exchange_Post extends Pluf_Model
                 'graphql_name' => 'receiver',
                 'editable' => false,
                 'readable' => true
+            ),
+            'trade_id' => array(
+                'type' => 'Pluf_DB_Field_Foreignkey',
+                'model' => 'Exchange_Trade',
+                'blank' => false,
+                'is_null' => false,
+                'relate_name' => 'posts',
+                'graphql_name' => 'trade',
+                'editable' => false,
+                'readable' => true
             )
         );
     }
