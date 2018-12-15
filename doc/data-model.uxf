@@ -12,8 +12,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>288</x>
-      <y>416</y>
+      <x>456</x>
+      <y>392</y>
       <w>168</w>
       <h>184</h>
     </coordinates>
@@ -37,8 +37,8 @@ Trade
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>312</x>
-      <y>264</y>
+      <x>480</x>
+      <y>240</y>
       <w>120</w>
       <h>56</h>
     </coordinates>
@@ -51,8 +51,8 @@ User_Account
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>368</x>
-      <y>312</y>
+      <x>536</x>
+      <y>288</y>
       <w>56</w>
       <h>120</h>
     </coordinates>
@@ -65,8 +65,8 @@ trader</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>584</x>
-      <y>240</y>
+      <x>752</x>
+      <y>216</y>
       <w>168</w>
       <h>88</h>
     </coordinates>
@@ -83,8 +83,8 @@ Post
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>424</x>
-      <y>296</y>
+      <x>592</x>
+      <y>272</y>
       <w>176</w>
       <h>40</h>
     </coordinates>
@@ -97,8 +97,8 @@ receiver</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>424</x>
-      <y>272</y>
+      <x>592</x>
+      <y>248</y>
       <w>176</w>
       <h>40</h>
     </coordinates>
@@ -111,8 +111,8 @@ sender</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>448</x>
-      <y>320</y>
+      <x>616</x>
+      <y>296</y>
       <w>208</w>
       <h>160</h>
     </coordinates>
@@ -125,8 +125,8 @@ trade</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>0</x>
-      <y>320</y>
+      <x>168</x>
+      <y>296</y>
       <w>168</w>
       <h>120</h>
     </coordinates>
@@ -145,8 +145,8 @@ Offer
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>160</x>
-      <y>384</y>
+      <x>328</x>
+      <y>360</y>
       <w>144</w>
       <h>104</h>
     </coordinates>
@@ -160,8 +160,8 @@ trade
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>160</x>
-      <y>296</y>
+      <x>328</x>
+      <y>272</y>
       <w>168</w>
       <h>88</h>
     </coordinates>
@@ -175,8 +175,8 @@ offerer
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>288</x>
-      <y>48</y>
+      <x>456</x>
+      <y>24</y>
       <w>168</w>
       <h>104</h>
     </coordinates>

@@ -1,5 +1,8 @@
+
 CREATE TABLE `exchange_offers` (
   `id` mediumint(9) unsigned NOT NULL AUTO_INCREMENT,
+  `amount` decimal(32,8) NOT NULL DEFAULT 0.00000000,
+  `unit_price` decimal(32,8) NOT NULL DEFAULT 0.00000000,
   `description` varchar(512) DEFAULT '',
   `creation_dtime` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `modif_dtime` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
