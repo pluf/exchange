@@ -68,15 +68,14 @@ trader</panel_attributes>
       <x>584</x>
       <y>240</y>
       <w>168</w>
-      <h>104</h>
+      <h>80</h>
     </coordinates>
     <panel_attributes>&lt;&lt;exchange&gt;&gt;
 Post
 --
 +message
-+send_dtime
-+received
-+seen
++creation_dtime
++modif_dtime
 --
 </panel_attributes>
     <additional_attributes/>
@@ -113,15 +112,15 @@ sender</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>448</x>
-      <y>336</y>
+      <y>312</y>
       <w>208</w>
-      <h>144</h>
+      <h>168</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=0..n
 m2=1
 trade</panel_attributes>
-    <additional_attributes>240.0;10.0;10.0;160.0</additional_attributes>
+    <additional_attributes>240.0;10.0;10.0;190.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
@@ -129,13 +128,14 @@ trade</panel_attributes>
       <x>0</x>
       <y>320</y>
       <w>168</w>
-      <h>104</h>
+      <h>120</h>
     </coordinates>
     <panel_attributes>&lt;&lt;exchange&gt;&gt;
 Offer
 --
 +amount
 +price_unit
++description
 +creation_dtime: DateTime
 +modif_dtime: DateTime
 --
