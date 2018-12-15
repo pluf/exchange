@@ -77,8 +77,8 @@ class Trade_ModelTest extends TestCase
         $model = new Exchange_Trade();
         $model->lower_limit = rand();
         $model->upper_limit = rand();
-        $model->from_currency = 'dollar';
-        $model->to_currency = 'bitcoin';
+        $model->source_currency = 'dollar';
+        $model->dest_currency = 'bitcoin';
         $model->unit_price = rand();
         $model->type = rand();
         Test_Assert::assertTrue($model->create(), 'Impossible to create Trade');
