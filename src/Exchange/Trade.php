@@ -90,13 +90,14 @@ class Exchange_Trade extends Pluf_Model
                 'readable' => true
             ),
             // relations
-            'trader' => array( // seller or buyer
+            'trader_id' => array( // seller or buyer
                 'type' => 'Pluf_DB_Field_Foreignkey',
                 'model' => 'User_Account',
                 'blank' => false,
                 'is_null' => false,
-                'relate_name' => 'seller',
-                'editable' => true,
+                'relate_name' => 'trades',
+                'graphql_name' => 'trader',
+                'editable' => false,
                 'readable' => true
             )
         );
