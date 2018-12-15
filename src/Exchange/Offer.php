@@ -20,6 +20,22 @@ class Exchange_Offer extends Pluf_Model
                 'editable' => false,
                 'readable' => true
             ),
+            'amount' => array(
+                'type' => 'Pluf_DB_Field_Float',
+                'blank' => false,
+                'is_null' => false,
+                'default' => 0,
+                'editable' => true,
+                'readable' => true
+            ),
+            'unit_price' => array(
+                'type' => 'Pluf_DB_Field_Float',
+                'blank' => false,
+                'blank' => false,
+                'default' => 0,
+                'editable' => true,
+                'readable' => true
+            ),
             'description' => array(
                 'type' => 'Pluf_DB_Field_Varchar',
                 'blank' => true,
