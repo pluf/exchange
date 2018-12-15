@@ -4,6 +4,7 @@ class Exchange_Trade extends Pluf_Model
 {
 
     /**
+     *
      * @brief مدل داده‌ای را بارگذاری می‌کند.
      *
      * @see Pluf_Model::init()
@@ -21,27 +22,27 @@ class Exchange_Trade extends Pluf_Model
             ),
             'lower_limit' => array(
                 'type' => 'Pluf_DB_Field_Float',
-                'blank' => true,
+                'is_null' => false,
                 'editable' => true,
                 'readable' => true
             ),
             'upper_limit' => array(
                 'type' => 'Pluf_DB_Field_Float',
-                'blank' => true,
+                'is_null' => true,
                 'editable' => true,
                 'readable' => true
             ),
-            'from_currency' => array(
+            'source_currency' => array(
                 'type' => 'Pluf_DB_Field_Varchar',
-                'blank' => true,
-                'default' => 0,
+                'is_null' => false,
+                'size' => 64,
                 'editable' => true,
                 'readable' => true
             ),
-            'to_currency' => array(
+            'dest_currency' => array(
                 'type' => 'Pluf_DB_Field_Varchar',
-                'blank' => true,
-                'default' => 0,
+                'is_null' => false,
+                'size' => 64,
                 'editable' => true,
                 'readable' => true
             ),
@@ -54,18 +55,26 @@ class Exchange_Trade extends Pluf_Model
             ),
             'type' => array( // sell or buy
                 'type' => 'Pluf_DB_Field_Varchar',
-                'blank' => false,
                 'is_null' => false,
+                'size' => 64,
                 'default' => 'sell',
                 'editable' => false,
                 'readable' => true
             ),
             'status' => array( // for example: deleted, closed, active and ... (may be used in workflow)
                 'type' => 'Pluf_DB_Field_Varchar',
-                'blank' => false,
                 'is_null' => false,
                 'default' => '',
+                'size' => 128,
                 'editable' => false,
+                'readable' => true
+            ),
+            'description' => array(
+                'type' => 'Pluf_DB_Field_Varchar',
+                'blank' => true,
+                'is_null' => true,
+                'size' => 512,
+                'editable' => true,
                 'readable' => true
             ),
             'creation_dtime' => array(
@@ -89,7 +98,7 @@ class Exchange_Trade extends Pluf_Model
                 'relate_name' => 'seller',
                 'editable' => true,
                 'readable' => true
-            ),
+            )
         );
     }
 
@@ -103,21 +112,11 @@ class Exchange_Trade extends Pluf_Model
     {
         if ($this->id == '') {
             $this->creation_dtime = gmdate('Y-m-d H:i:s');
-            if($this->type == ''){ // Default value for type is sell
+            if ($this->type == '') { // Default value for type is sell
                 $this->type = 'sell';
             }
         }
         $this->modif_dtime = gmdate('Y-m-d H:i:s');
     }
-
-    /**
-     * حالت کار ایجاد شده را به روز می‌کند
-     *
-     * @see Pluf_Model::postSave()
-     */
-    function postSave($create = false)
-    {
-        //
-    }
-
+    
 }
