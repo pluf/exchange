@@ -68,7 +68,7 @@ trader</panel_attributes>
       <x>584</x>
       <y>240</y>
       <w>168</w>
-      <h>80</h>
+      <h>88</h>
     </coordinates>
     <panel_attributes>&lt;&lt;exchange&gt;&gt;
 Post
@@ -112,15 +112,15 @@ sender</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>448</x>
-      <y>312</y>
+      <y>320</y>
       <w>208</w>
-      <h>168</h>
+      <h>160</h>
     </coordinates>
     <panel_attributes>lt=-
 m1=0..n
 m2=1
 trade</panel_attributes>
-    <additional_attributes>240.0;10.0;10.0;190.0</additional_attributes>
+    <additional_attributes>240.0;10.0;10.0;180.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
