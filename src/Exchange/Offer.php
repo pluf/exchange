@@ -53,7 +53,7 @@ class Exchange_Offer extends Pluf_Model
             ),
             'trade_id' => array( 
                 'type' => 'Pluf_DB_Field_Foreignkey',
-                'model' => 'User_Account',
+                'model' => 'Exchange_Trade',
                 'blank' => false,
                 'is_null' => false,
                 'relate_name' => 'offers',
