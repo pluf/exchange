@@ -46,6 +46,7 @@ class Exchange_Post extends Pluf_Model
                 'model' => 'User_Account',
                 'blank' => false,
                 'is_null' => false,
+                'name' => 'sender',
                 'relate_name' => 'sent_posts',
                 'graphql_name' => 'sender',
                 'editable' => false,
@@ -56,9 +57,10 @@ class Exchange_Post extends Pluf_Model
                 'model' => 'User_Account',
                 'blank' => false,
                 'is_null' => false,
+                'name' => 'receiver',
                 'relate_name' => 'received_posts',
                 'graphql_name' => 'receiver',
-                'editable' => false,
+                'editable' => true,
                 'readable' => true
             ),
             'trade_id' => array(
@@ -66,6 +68,7 @@ class Exchange_Post extends Pluf_Model
                 'model' => 'Exchange_Trade',
                 'blank' => false,
                 'is_null' => false,
+                'name' => 'trade',
                 'relate_name' => 'posts',
                 'graphql_name' => 'trade',
                 'editable' => false,

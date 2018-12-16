@@ -95,6 +95,7 @@ class Exchange_Trade extends Pluf_Model
                 'model' => 'User_Account',
                 'blank' => false,
                 'is_null' => false,
+                'name' => 'trader',
                 'relate_name' => 'trades',
                 'graphql_name' => 'trader',
                 'editable' => false,
