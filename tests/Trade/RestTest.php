@@ -108,8 +108,8 @@ class Trade_RestTest extends TestCase
         $form = array(
             'lower_limit' => rand(),
             'upper_limit' => rand(),
-            'from_currency' => 'dollar',
-            'to_currency' => 'bitcoin',
+            'source_currency' => 'dollar',
+            'dest_currency' => 'bitcoin',
             'unit_price' => rand(),
             'type' => rand()
         );
@@ -127,8 +127,8 @@ class Trade_RestTest extends TestCase
         $model = new Exchange_Trade();
         $model->lower_limit = rand();
         $model->upper_limit = rand();
-        $model->from_currency = 'dollar';
-        $model->to_currency = 'bitcoin';
+        $model->source_currency = 'dollar';
+        $model->dest_currency = 'bitcoin';
         $model->unit_price = rand();
         $model->type = rand();
         $model->create();
@@ -148,8 +148,8 @@ class Trade_RestTest extends TestCase
         $model = new Exchange_Trade();
         $model->lower_limit = rand();
         $model->upper_limit = rand();
-        $model->from_currency = 'dollar';
-        $model->to_currency = 'bitcoin';
+        $model->source_currency = 'dollar';
+        $model->dest_currency = 'bitcoin';
         $model->unit_price = rand();
         $model->type = rand();
         $model->create();
@@ -173,8 +173,8 @@ class Trade_RestTest extends TestCase
         $model = new Exchange_Trade();
         $model->lower_limit = rand();
         $model->upper_limit = rand();
-        $model->from_currency = 'dollar';
-        $model->to_currency = 'bitcoin';
+        $model->source_currency = 'dollar';
+        $model->dest_currency = 'bitcoin';
         $model->unit_price = rand();
         $model->type = rand();
         $model->create();

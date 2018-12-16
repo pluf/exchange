@@ -1,6 +1,6 @@
 <?php
 
-class Exchange_Trade extends Pluf_Model
+class Exchange_Offer extends Pluf_Model
 {
 
     /**
@@ -11,8 +11,8 @@ class Exchange_Trade extends Pluf_Model
      */
     function init()
     {
-        $this->_a['table'] = 'exchange_trades';
-        $this->_a['verbose'] = 'Exchange_Trades';
+        $this->_a['table'] = 'exchange_offers';
+        $this->_a['verbose'] = 'Exchange_Offers';
         $this->_a['cols'] = array(
             'id' => array(
                 'type' => 'Pluf_DB_Field_Sequence',
@@ -20,53 +20,20 @@ class Exchange_Trade extends Pluf_Model
                 'editable' => false,
                 'readable' => true
             ),
-            'lower_limit' => array(
+            'amount' => array(
                 'type' => 'Pluf_DB_Field_Float',
+                'blank' => false,
                 'is_null' => false,
-                'editable' => true,
-                'readable' => true
-            ),
-            'upper_limit' => array(
-                'type' => 'Pluf_DB_Field_Float',
-                'is_null' => true,
-                'editable' => true,
-                'readable' => true
-            ),
-            'source_currency' => array(
-                'type' => 'Pluf_DB_Field_Varchar',
-                'is_null' => false,
-                'size' => 64,
-                'editable' => true,
-                'readable' => true
-            ),
-            'dest_currency' => array(
-                'type' => 'Pluf_DB_Field_Varchar',
-                'is_null' => false,
-                'size' => 64,
+                'default' => 0,
                 'editable' => true,
                 'readable' => true
             ),
             'unit_price' => array(
                 'type' => 'Pluf_DB_Field_Float',
-                'blank' => true,
+                'blank' => false,
+                'blank' => false,
                 'default' => 0,
                 'editable' => true,
-                'readable' => true
-            ),
-            'type' => array( // sell or buy
-                'type' => 'Pluf_DB_Field_Varchar',
-                'is_null' => false,
-                'size' => 64,
-                'default' => 'sell',
-                'editable' => false,
-                'readable' => true
-            ),
-            'status' => array( // for example: deleted, closed, active and ... (may be used in workflow)
-                'type' => 'Pluf_DB_Field_Varchar',
-                'is_null' => false,
-                'default' => '',
-                'size' => 128,
-                'editable' => false,
                 'readable' => true
             ),
             'description' => array(
@@ -90,14 +57,25 @@ class Exchange_Trade extends Pluf_Model
                 'readable' => true
             ),
             // relations
-            'trader_id' => array( // seller or buyer
+            'offerer_id' => array( 
                 'type' => 'Pluf_DB_Field_Foreignkey',
                 'model' => 'User_Account',
                 'blank' => false,
                 'is_null' => false,
-                'name' => 'trader',
-                'relate_name' => 'trades',
-                'graphql_name' => 'trader',
+                'name' => 'offerer',
+                'relate_name' => 'offers',
+                'graphql_name' => 'offerer',
+                'editable' => false,
+                'readable' => true
+            ),
+            'trade_id' => array( 
+                'type' => 'Pluf_DB_Field_Foreignkey',
+                'model' => 'Exchange_Trade',
+                'blank' => false,
+                'is_null' => false,
+                'name' => 'trade',
+                'relate_name' => 'offers',
+                'graphql_name' => 'trade',
                 'editable' => false,
                 'readable' => true
             )
@@ -114,9 +92,6 @@ class Exchange_Trade extends Pluf_Model
     {
         if ($this->id == '') {
             $this->creation_dtime = gmdate('Y-m-d H:i:s');
-            if ($this->type == '') { // Default value for type is sell
-                $this->type = 'sell';
-            }
         }
         $this->modif_dtime = gmdate('Y-m-d H:i:s');
     }

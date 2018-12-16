@@ -3,7 +3,9 @@
   "version": "1",
   "title": "Sell Digital Products System",
   "model": [
-		"Exchange_Trade"
+		"Exchange_Trade",
+		"Exchange_Offer",
+		"Exchange_Post"
 	],
 	"permisson": []
 }

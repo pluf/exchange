@@ -23,10 +23,10 @@ class Exchange_Views_Trade
          * @var Exchange_Trade $trade
          */
         $trade = $form->save();
-//         if (isset($user)) {
-//             $trade->__set('trader', $user);
-//         }
-//         $trade->update();
+        if (isset($user)) {
+            $trade->trader_id = $user;
+        }
+        $trade->update();
 //         $manager = $trade->getManager();
 //         $manager->apply($trade, 'create');
 //         return array_merge($trade->jsonSerialize(), array(
