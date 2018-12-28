@@ -2,14 +2,14 @@
 Pluf::loadFunction('Pluf_Shortcuts_GetObjectOr404');
 Pluf::loadFunction('Exchange_Shortcuts_NormalizeItemPerPage');
 
-class Exchange_Views_Post
+class Exchange_Views_Comment
 {
 
     public static function find($request, $match)
     {
         $parent = Pluf_Shortcuts_GetObjectOr404('Exchange_Advertisement', $match['parentId']);
-        $post = new Exchange_Post();
-        $pag = new Pluf_Paginator($post);
+        $comment = new Exchange_Comment();
+        $pag = new Pluf_Paginator($comment);
         if(User_Precondition::isOwner($request)){            
             $pag->forced_where = new Pluf_SQL('advertisement_id=%s', $parent->id);
         }else{
@@ -52,7 +52,7 @@ class Exchange_Views_Post
     public static function create($request, $match)
     {
         $parent = Pluf_Shortcuts_GetObjectOr404('Exchange_Advertisement', $match['parentId']);
-        $object = new Exchange_Post();
+        $object = new Exchange_Comment();
         $form = Pluf_Shortcuts_GetFormForModel($object, $request->REQUEST);
         $object = $form->save(false);
         $object->advertisement_id = $parent;
@@ -64,12 +64,12 @@ class Exchange_Views_Post
     public static function get($request, $match)
     {
         $parent = Pluf_Shortcuts_GetObjectOr404('Exchange_Advertisement', $match['parentId']);
-        $post = Pluf_Shortcuts_GetObjectOr404('Exchange_Post', $match['modelId']);
-        if($post->advertisement_id !== $parent->id){
-            throw new Pluf_HTTP_Error404('The Advertisement has no such Post.');
+        $comment = Pluf_Shortcuts_GetObjectOr404('Exchange_Comment', $match['modelId']);
+        if($comment->advertisement_id !== $parent->id){
+            throw new Pluf_HTTP_Error404('The Advertisement has no such Comment.');
         }
-        if (self::canAccess($request, $post))
-            return $post;
+        if (self::canAccess($request, $comment))
+            return $comment;
         throw new Pluf_Exception_PermissionDenied("Permission is denied");
     }
 
@@ -83,14 +83,14 @@ class Exchange_Views_Post
     public static function update($request, $match)
     {
         $parent = Pluf_Shortcuts_GetObjectOr404('Exchange_Advertisement', $match['parentId']);
-        $post = Pluf_Shortcuts_GetObjectOr404('Exchange_Post', $match['modelId']);
-        if($post->advertisement_id !== $parent->id){
-            throw new Pluf_HTTP_Error404('The Advertisement has no such Post.');
+        $comment = Pluf_Shortcuts_GetObjectOr404('Exchange_Comment', $match['modelId']);
+        if($comment->advertisement_id !== $parent->id){
+            throw new Pluf_HTTP_Error404('The Advertisement has no such Comment.');
         }
-        if (self::canAccess($request, $post)){
-            $form = Pluf_Shortcuts_GetFormForUpdateModel($post, $request->REQUEST);
-            $updatedPost = $form->save();
-            return $updatedPost;
+        if (self::canAccess($request, $comment)){
+            $form = Pluf_Shortcuts_GetFormForUpdateModel($comment, $request->REQUEST);
+            $updatedComment = $form->save();
+            return $updatedComment;
         }
         throw new Pluf_Exception_PermissionDenied("Permission is denied");
     }
@@ -98,34 +98,34 @@ class Exchange_Views_Post
     public static function delete($request, $match)
     {
         $parent = Pluf_Shortcuts_GetObjectOr404('Exchange_Advertisement', $match['parentId']);
-        $post = Pluf_Shortcuts_GetObjectOr404('Exchange_Post', $match['modelId']);
-        if($post->advertisement_id !== $parent->id){
-            throw new Pluf_HTTP_Error404('The Advertisement has no such Post.');
+        $comment = Pluf_Shortcuts_GetObjectOr404('Exchange_Comment', $match['modelId']);
+        if($comment->advertisement_id !== $parent->id){
+            throw new Pluf_HTTP_Error404('The Advertisement has no such Comment.');
         }
         if (!User_Precondition::isOwner($request) || 
-            $request->user->id === $post->get_sender()->id){
-            $post->delete();
-            return $post;
+            $request->user->id === $comment->get_sender()->id){
+            $comment->delete();
+            return $comment;
         }
         throw new Pluf_Exception_PermissionDenied("Permission is denied");
     }
 
     /**
-     * Checks if user sending request has access to given Exchange_Post object
-     * returns true if current user is sender or receiver of post
+     * Checks if user sending request has access to given Exchange_Comment object
+     * returns true if current user is sender or receiver of comment
      * 
      * @param Pluf_HTTP_Request $request
-     * @param Exchange_Post $post
+     * @param Exchange_Comment $comment
      * @return boolean 
      */
-    private static function canAccess($request, $post){
+    private static function canAccess($request, $comment){
         if(User_Precondition::isOwner($request)){
             return true;
         }
         $user = $request->user;
-        $sender = $post->get_sender();
-        $receiver = $post->get_receiver();
-        // returns true if current user is sender or receiver of post
+        $sender = $comment->get_sender();
+        $receiver = $comment->get_receiver();
+        // returns true if current user is sender or receiver of comment
         return (isset($user) && ($user->getId() === $sender->getId() || $user->getId() === $receiver->getId()));
     }
 }

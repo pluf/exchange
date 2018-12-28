@@ -44,8 +44,8 @@ class Basic_DataModelTest extends TestCase
         $this->assertTrue(isset($object), 'Exchange_Advertisement could not be created!');
         $object = new Exchange_Offer();
         $this->assertTrue(isset($object), 'Exchange_Offer could not be created!');
-        $object = new Exchange_Post();
-        $this->assertTrue(isset($object), 'Exchange_Post could not be created!');
+        $object = new Exchange_Comment();
+        $this->assertTrue(isset($object), 'Exchange_Comment could not be created!');
     }
 }
 

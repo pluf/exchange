@@ -93,7 +93,7 @@ class Advertisement_RestTest extends TestCase
             )
         ));
         // login
-        $this->client->post('/user/login', array(
+        $this->client->comment('/user/login', array(
             'login' => 'test',
             'password' => 'test'
         ));
@@ -113,7 +113,7 @@ class Advertisement_RestTest extends TestCase
             'unit_price' => rand(),
             'type' => rand()
         );
-        $response = $this->client->post('/exchange/advertisements', $form);
+        $response = $this->client->comment('/exchange/advertisements', $form);
         $this->assertNotNull($response);
         $this->assertEquals($response->status_code, 200);
     }
@@ -159,7 +159,7 @@ class Advertisement_RestTest extends TestCase
             'upper_limit' => rand(),
             'unit_price' => rand()
         );
-        $response = $this->client->post('/exchange/advertisements/' . $model->id, $form);
+        $response = $this->client->comment('/exchange/advertisements/' . $model->id, $form);
         $this->assertNotNull($response);
         $this->assertEquals($response->status_code, 200);
     }

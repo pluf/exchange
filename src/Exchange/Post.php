@@ -1,6 +1,6 @@
 <?php
 
-class Exchange_Post extends Pluf_Model
+class Exchange_Comment extends Pluf_Model
 {
 
     /**
@@ -11,8 +11,8 @@ class Exchange_Post extends Pluf_Model
      */
     function init()
     {
-        $this->_a['table'] = 'exchange_posts';
-        $this->_a['verbose'] = 'Exchange_Posts';
+        $this->_a['table'] = 'exchange_comments';
+        $this->_a['verbose'] = 'Exchange_Comments';
         $this->_a['cols'] = array(
             'id' => array(
                 'type' => 'Pluf_DB_Field_Sequence',
@@ -47,7 +47,7 @@ class Exchange_Post extends Pluf_Model
                 'blank' => false,
                 'is_null' => false,
                 'name' => 'sender',
-                'relate_name' => 'sent_posts',
+                'relate_name' => 'sent_comments',
                 'graphql_name' => 'sender',
                 'editable' => false,
                 'readable' => true
@@ -58,7 +58,7 @@ class Exchange_Post extends Pluf_Model
                 'blank' => false,
                 'is_null' => false,
                 'name' => 'receiver',
-                'relate_name' => 'received_posts',
+                'relate_name' => 'received_comments',
                 'graphql_name' => 'receiver',
                 'editable' => true,
                 'readable' => true
@@ -69,7 +69,7 @@ class Exchange_Post extends Pluf_Model
                 'blank' => false,
                 'is_null' => false,
                 'name' => 'advertisement',
-                'relate_name' => 'posts',
+                'relate_name' => 'comments',
                 'graphql_name' => 'advertisement',
                 'editable' => false,
                 'readable' => true

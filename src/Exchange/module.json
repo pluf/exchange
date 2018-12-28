@@ -5,7 +5,7 @@
   "model": [
 		"Exchange_Advertisement",
 		"Exchange_Offer",
-		"Exchange_Post"
+		"Exchange_Comment"
 	],
 	"permisson": []
 }
