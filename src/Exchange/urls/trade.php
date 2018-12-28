@@ -1,9 +1,9 @@
 <?php
 return array(
-    // ************************************************************* Trades
+    // ************************************************************* Advertisements
     array( // Create
         'regex' => '#^/advertisements$#',
-        'model' => 'Exchange_Views_Trade',
+        'model' => 'Exchange_Views_Advertisement',
         'method' => 'create',
         'http-method' => 'POST',
         'precond' => array(

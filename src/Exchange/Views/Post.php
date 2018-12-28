@@ -66,7 +66,7 @@ class Exchange_Views_Post
         $parent = Pluf_Shortcuts_GetObjectOr404('Exchange_Advertisement', $match['parentId']);
         $post = Pluf_Shortcuts_GetObjectOr404('Exchange_Post', $match['modelId']);
         if($post->advertisement_id !== $parent->id){
-            throw new Pluf_HTTP_Error404('The Trade has no such Post.');
+            throw new Pluf_HTTP_Error404('The Advertisement has no such Post.');
         }
         if (self::canAccess($request, $post))
             return $post;
@@ -85,7 +85,7 @@ class Exchange_Views_Post
         $parent = Pluf_Shortcuts_GetObjectOr404('Exchange_Advertisement', $match['parentId']);
         $post = Pluf_Shortcuts_GetObjectOr404('Exchange_Post', $match['modelId']);
         if($post->advertisement_id !== $parent->id){
-            throw new Pluf_HTTP_Error404('The Trade has no such Post.');
+            throw new Pluf_HTTP_Error404('The Advertisement has no such Post.');
         }
         if (self::canAccess($request, $post)){
             $form = Pluf_Shortcuts_GetFormForUpdateModel($post, $request->REQUEST);
@@ -100,7 +100,7 @@ class Exchange_Views_Post
         $parent = Pluf_Shortcuts_GetObjectOr404('Exchange_Advertisement', $match['parentId']);
         $post = Pluf_Shortcuts_GetObjectOr404('Exchange_Post', $match['modelId']);
         if($post->advertisement_id !== $parent->id){
-            throw new Pluf_HTTP_Error404('The Trade has no such Post.');
+            throw new Pluf_HTTP_Error404('The Advertisement has no such Post.');
         }
         if (!User_Precondition::isOwner($request) || 
             $request->user->id === $post->get_sender()->id){

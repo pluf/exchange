@@ -1,6 +1,6 @@
 <?php
 return array(
-    // ************************************************************* Offers of Trade
+    // ************************************************************* Offers of Advertisement
     array( // Create
         'regex' => '#^/advertisements/(?P<parentId>\d+)/offers$#',
         'model' => 'Exchange_Views_Offer',

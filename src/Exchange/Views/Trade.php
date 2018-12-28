@@ -1,7 +1,7 @@
 <?php
 Pluf::loadFunction('Pluf_Shortcuts_GetFormForModel');
 
-class Exchange_Views_Trade
+class Exchange_Views_Advertisement
 {
 
     /**
