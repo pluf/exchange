@@ -2,7 +2,7 @@
 return array(
     // ************************************************************* Trades
     array( // Create
-        'regex' => '#^/trades$#',
+        'regex' => '#^/advertisements$#',
         'model' => 'Exchange_Views_Trade',
         'method' => 'create',
         'http-method' => 'POST',
@@ -11,16 +11,16 @@ return array(
         )
     ),
     array( // Read (list)
-        'regex' => '#^/trades$#',
+        'regex' => '#^/advertisements$#',
         'model' => 'Pluf_Views',
         'method' => 'findObject',
         'http-method' => 'GET',
         'params' => array(
-            'model' => 'Exchange_Trade'
+            'model' => 'Exchange_Advertisement'
         )
     ),
     array( // Read
-        'regex' => '#^/trades/(?P<modelId>\d+)$#',
+        'regex' => '#^/advertisements/(?P<modelId>\d+)$#',
         'model' => 'Pluf_Views',
         'method' => 'getObject',
         'http-method' => 'GET',
@@ -28,23 +28,23 @@ return array(
             'User_Precondition::loginRequired'
         ),
         'params' => array(
-            'model' => 'Exchange_Trade'
+            'model' => 'Exchange_Advertisement'
         )
     ),
     array( // Update
-        'regex' => '#^/trades/(?P<modelId>\d+)$#',
+        'regex' => '#^/advertisements/(?P<modelId>\d+)$#',
         'model' => 'Pluf_Views',
         'method' => 'updateObject',
         'http-method' => 'POST',
         'params' => array(
-            'model' => 'Exchange_Trade'
+            'model' => 'Exchange_Advertisement'
         ),
         'precond' => array(
             'User_Precondition::ownerRequired'
         )
     ),
     array( // Delete
-        'regex' => '#^/trades/(?P<modelId>\d+)$#',
+        'regex' => '#^/advertisements/(?P<modelId>\d+)$#',
         'model' => 'Pluf_Views',
         'method' => 'deleteObject',
         'http-method' => 'DELETE',
@@ -52,7 +52,7 @@ return array(
             'User_Precondition::ownerRequired'
         ),
         'params' => array(
-            'model' => 'Exchange_Trade',
+            'model' => 'Exchange_Advertisement',
             'permanently' => false
         )
     )

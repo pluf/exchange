@@ -63,14 +63,14 @@ class Exchange_Post extends Pluf_Model
                 'editable' => true,
                 'readable' => true
             ),
-            'trade_id' => array(
+            'advertisement_id' => array(
                 'type' => 'Pluf_DB_Field_Foreignkey',
-                'model' => 'Exchange_Trade',
+                'model' => 'Exchange_Advertisement',
                 'blank' => false,
                 'is_null' => false,
-                'name' => 'trade',
+                'name' => 'advertisement',
                 'relate_name' => 'posts',
-                'graphql_name' => 'trade',
+                'graphql_name' => 'advertisement',
                 'editable' => false,
                 'readable' => true
             )

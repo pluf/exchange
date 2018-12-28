@@ -2,7 +2,7 @@
 return array(
     // ************************************************************* Offers of Trade
     array( // Create
-        'regex' => '#^/trades/(?P<parentId>\d+)/offers$#',
+        'regex' => '#^/advertisements/(?P<parentId>\d+)/offers$#',
         'model' => 'Exchange_Views_Offer',
         'method' => 'addOffer',
         'http-method' => 'POST',
@@ -11,20 +11,20 @@ return array(
         ),
         'params' => array(
             'model' => 'Exchange_Offer',
-            'parent' => 'Exchange_Trade',
-            'parentKey' => 'trade_id'
+            'parent' => 'Exchange_Advertisement',
+            'parentKey' => 'advertisement_id'
         )
     ),
     array( // Read (list)
-        'regex' => '#^/trades/(?P<parentId>\d+)/offers$#',
+        'regex' => '#^/advertisements/(?P<parentId>\d+)/offers$#',
         'model' => 'Pluf_Views',
         'method' => 'findManyToOne',
         'http-method' => 'GET',
         'precond' => array(),
         'params' => array(
             'model' => 'Exchange_Offer',
-            'parent' => 'Exchange_Trade',
-            'parentKey' => 'trade_id',
+            'parent' => 'Exchange_Advertisement',
+            'parentKey' => 'advertisement_id',
             'listFilters' => array(
                 'amount',
                 'unit_price',
@@ -49,19 +49,19 @@ return array(
         )
     ),
     array( // Read
-        'regex' => '#^/trades/(?P<parentId>\d+)/offers/(?P<modelId>\d+)$#',
+        'regex' => '#^/advertisements/(?P<parentId>\d+)/offers/(?P<modelId>\d+)$#',
         'model' => 'Pluf_Views',
         'method' => 'getManyToOne',
         'http-method' => 'GET',
         'precond' => array(),
         'params' => array(
             'model' => 'Exchange_Offer',
-            'parent' => 'Exchange_Trade',
-            'parentKey' => 'trade_id'
+            'parent' => 'Exchange_Advertisement',
+            'parentKey' => 'advertisement_id'
         )
     ),
 //     array( // Update
-//         'regex' => '#^/trade/(?P<parentId>\d+)/offers/(?P<modelId>\d+)$#',
+//         'regex' => '#^/advertisement/(?P<parentId>\d+)/offers/(?P<modelId>\d+)$#',
 //         'model' => 'Pluf_Views',
 //         'method' => 'updateManyToOne',
 //         'http-method' => 'POST',
@@ -70,12 +70,12 @@ return array(
 //         ),
 //         'params' => array(
 //             'model' => 'Exchange_Offer',
-//             'parent' => 'Exchange_Trade',
-//             'parentKey' => 'trade_id'
+//             'parent' => 'Exchange_Advertisement',
+//             'parentKey' => 'advertisement_id'
 //         )
 //     ),
     array( // Delete
-        'regex' => '#^/trades/(?P<parentId>\d+)/offers/(?P<modelId>\d+)$#',
+        'regex' => '#^/advertisements/(?P<parentId>\d+)/offers/(?P<modelId>\d+)$#',
         'model' => 'Pluf_Views',
         'method' => 'deleteManyToOne',
         'http-method' => 'DELETE',
@@ -84,8 +84,8 @@ return array(
         ),
         'params' => array(
             'model' => 'Exchange_Offer',
-            'parent' => 'Exchange_Trade',
-            'parentKey' => 'trade_id'
+            'parent' => 'Exchange_Advertisement',
+            'parentKey' => 'advertisement_id'
         )
     ),
     

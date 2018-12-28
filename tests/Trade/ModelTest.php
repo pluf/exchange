@@ -74,7 +74,7 @@ class Trade_ModelTest extends TestCase
      */
     public function shouldPossibleCreateNew()
     {
-        $model = new Exchange_Trade();
+        $model = new Exchange_Advertisement();
         $model->lower_limit = rand();
         $model->upper_limit = rand();
         $model->source_currency = 'dollar';

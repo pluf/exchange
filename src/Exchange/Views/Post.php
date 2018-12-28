@@ -7,13 +7,13 @@ class Exchange_Views_Post
 
     public static function find($request, $match)
     {
-        $parent = Pluf_Shortcuts_GetObjectOr404('Exchange_Trade', $match['parentId']);
+        $parent = Pluf_Shortcuts_GetObjectOr404('Exchange_Advertisement', $match['parentId']);
         $post = new Exchange_Post();
         $pag = new Pluf_Paginator($post);
         if(User_Precondition::isOwner($request)){            
-            $pag->forced_where = new Pluf_SQL('trade_id=%s', $parent->id);
+            $pag->forced_where = new Pluf_SQL('advertisement_id=%s', $parent->id);
         }else{
-            $pag->forced_where = new Pluf_SQL('trade_id=%s AND (sender_id=%s OR receiver_id=%s)', array(
+            $pag->forced_where = new Pluf_SQL('advertisement_id=%s AND (sender_id=%s OR receiver_id=%s)', array(
                 $parent->id,
                 $request->user->id,
                 $request->user->id
@@ -23,7 +23,7 @@ class Exchange_Views_Post
             'id',
             'sender_id',
             'receiver_id',
-            'trade_id'
+            'advertisement_id'
         );
         $search_fields = array(
             'message'
@@ -32,7 +32,7 @@ class Exchange_Views_Post
             'id',
             'sender_id',
             'receiver_id',
-            'trade_id',
+            'advertisement_id',
             'creation_dtime',
             'modif_dtime'
         );
@@ -51,11 +51,11 @@ class Exchange_Views_Post
      */
     public static function create($request, $match)
     {
-        $parent = Pluf_Shortcuts_GetObjectOr404('Exchange_Trade', $match['parentId']);
+        $parent = Pluf_Shortcuts_GetObjectOr404('Exchange_Advertisement', $match['parentId']);
         $object = new Exchange_Post();
         $form = Pluf_Shortcuts_GetFormForModel($object, $request->REQUEST);
         $object = $form->save(false);
-        $object->trade_id = $parent;
+        $object->advertisement_id = $parent;
         $object->sender_id = $request->user;
         $object->create();
         return $object;
@@ -63,9 +63,9 @@ class Exchange_Views_Post
 
     public static function get($request, $match)
     {
-        $parent = Pluf_Shortcuts_GetObjectOr404('Exchange_Trade', $match['parentId']);
+        $parent = Pluf_Shortcuts_GetObjectOr404('Exchange_Advertisement', $match['parentId']);
         $post = Pluf_Shortcuts_GetObjectOr404('Exchange_Post', $match['modelId']);
-        if($post->trade_id !== $parent->id){
+        if($post->advertisement_id !== $parent->id){
             throw new Pluf_HTTP_Error404('The Trade has no such Post.');
         }
         if (self::canAccess($request, $post))
@@ -82,9 +82,9 @@ class Exchange_Views_Post
      */
     public static function update($request, $match)
     {
-        $parent = Pluf_Shortcuts_GetObjectOr404('Exchange_Trade', $match['parentId']);
+        $parent = Pluf_Shortcuts_GetObjectOr404('Exchange_Advertisement', $match['parentId']);
         $post = Pluf_Shortcuts_GetObjectOr404('Exchange_Post', $match['modelId']);
-        if($post->trade_id !== $parent->id){
+        if($post->advertisement_id !== $parent->id){
             throw new Pluf_HTTP_Error404('The Trade has no such Post.');
         }
         if (self::canAccess($request, $post)){
@@ -97,9 +97,9 @@ class Exchange_Views_Post
 
     public static function delete($request, $match)
     {
-        $parent = Pluf_Shortcuts_GetObjectOr404('Exchange_Trade', $match['parentId']);
+        $parent = Pluf_Shortcuts_GetObjectOr404('Exchange_Advertisement', $match['parentId']);
         $post = Pluf_Shortcuts_GetObjectOr404('Exchange_Post', $match['modelId']);
-        if($post->trade_id !== $parent->id){
+        if($post->advertisement_id !== $parent->id){
             throw new Pluf_HTTP_Error404('The Trade has no such Post.');
         }
         if (!User_Precondition::isOwner($request) || 

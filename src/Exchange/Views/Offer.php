@@ -5,7 +5,7 @@ class Exchange_Views_Offer
 {
 
     /**
-     * Creates and adds new offer to a trade
+     * Creates and adds new offer to a advertisement
      *
      * @param Pluf_HTTP_Request $request
      * @param array $match
@@ -13,11 +13,11 @@ class Exchange_Views_Offer
      */
     public function addOffer($request, $match)
     {
-        $parent = Pluf_Shortcuts_GetObjectOr404('Exchange_Trade', $match['parentId']);
+        $parent = Pluf_Shortcuts_GetObjectOr404('Exchange_Advertisement', $match['parentId']);
         $object = new Exchange_Offer();
         $form = Pluf_Shortcuts_GetFormForModel($object, $request->REQUEST);
         $object = $form->save(false);
-        $object->trade_id = $parent;
+        $object->advertisement_id = $parent;
         $object->offerer_id = $request->user;
         $object->create();
         return $object;

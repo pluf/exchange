@@ -5,7 +5,7 @@ class Exchange_Views_Trade
 {
 
     /**
-     * Creates a new trade
+     * Creates a new advertisement
      *
      * @param Pluf_HTTP_Request $request
      * @param array $match
@@ -15,23 +15,23 @@ class Exchange_Views_Trade
     {
         $user = $request->user;
         if (isset($user)) {
-            $request->REQUEST['trader'] = $user->id;
+            $request->REQUEST['advertisementr'] = $user->id;
         }
-        $form = Pluf_Shortcuts_GetFormForModel(Pluf::factory('Exchange_Trade'), $request->REQUEST);
+        $form = Pluf_Shortcuts_GetFormForModel(Pluf::factory('Exchange_Advertisement'), $request->REQUEST);
         /**
          *
-         * @var Exchange_Trade $trade
+         * @var Exchange_Advertisement $advertisement
          */
-        $trade = $form->save();
+        $advertisement = $form->save();
         if (isset($user)) {
-            $trade->trader_id = $user;
+            $advertisement->advertisementr_id = $user;
         }
-        $trade->update();
-//         $manager = $trade->getManager();
-//         $manager->apply($trade, 'create');
-//         return array_merge($trade->jsonSerialize(), array(
-//             'secureId' => $trade->secureId
+        $advertisement->update();
+//         $manager = $advertisement->getManager();
+//         $manager->apply($advertisement, 'create');
+//         return array_merge($advertisement->jsonSerialize(), array(
+//             'secureId' => $advertisement->secureId
 //         ));
-        return $trade;
+        return $advertisement;
     }
 }
