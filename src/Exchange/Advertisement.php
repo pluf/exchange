@@ -90,14 +90,14 @@ class Exchange_Advertisement extends Pluf_Model
                 'readable' => true
             ),
             // relations
-            'advertisementr_id' => array( // seller or buyer
+            'advertiser_id' => array( // seller or buyer
                 'type' => 'Pluf_DB_Field_Foreignkey',
                 'model' => 'User_Account',
                 'blank' => false,
                 'is_null' => false,
-                'name' => 'advertisementr',
+                'name' => 'advertiser',
                 'relate_name' => 'advertisements',
-                'graphql_name' => 'advertisementr',
+                'graphql_name' => 'advertiser',
                 'editable' => false,
                 'readable' => true
             )
