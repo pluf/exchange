@@ -36,37 +36,17 @@ class Exchange_OfferMetadata extends Pluf_Model
                 'editable' => true,
                 'readable' => true
             ),
-            // relations
-            'sender_id' => array(
+           /*
+            * Relations
+            */
+            'offer_id' => array(
                 'type' => 'Pluf_DB_Field_Foreignkey',
-                'model' => 'User_Account',
+                'model' => 'Exchange_Offer',
                 'blank' => false,
                 'is_null' => false,
-                'name' => 'sender',
-                'relate_name' => 'sent_comments',
-                'graphql_name' => 'sender',
-                'editable' => false,
-                'readable' => true
-            ),
-            'receiver_id' => array(
-                'type' => 'Pluf_DB_Field_Foreignkey',
-                'model' => 'User_Account',
-                'blank' => false,
-                'is_null' => false,
-                'name' => 'receiver',
-                'relate_name' => 'received_comments',
-                'graphql_name' => 'receiver',
-                'editable' => true,
-                'readable' => true
-            ),
-            'advertisement_id' => array(
-                'type' => 'Pluf_DB_Field_Foreignkey',
-                'model' => 'Exchange_Advertisement',
-                'blank' => false,
-                'is_null' => false,
-                'name' => 'advertisement',
-                'relate_name' => 'comments',
-                'graphql_name' => 'advertisement',
+                'name' => 'offer',
+                'relate_name' => 'metadata',
+                'graphql_name' => 'offer',
                 'editable' => false,
                 'readable' => true
             )
