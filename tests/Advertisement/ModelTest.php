@@ -27,7 +27,7 @@ Pluf::loadFunction('Pluf_Shortcuts_GetFormForModel');
  * @backupGlobals disabled
  * @backupStaticAttributes disabled
  */
-class Trade_ModelTest extends TestCase
+class Advertisement_ModelTest extends TestCase
 {
     /**
      * @beforeClass
@@ -74,14 +74,14 @@ class Trade_ModelTest extends TestCase
      */
     public function shouldPossibleCreateNew()
     {
-        $model = new Exchange_Trade();
+        $model = new Exchange_Advertisement();
         $model->lower_limit = rand();
         $model->upper_limit = rand();
         $model->source_currency = 'dollar';
         $model->dest_currency = 'bitcoin';
         $model->unit_price = rand();
         $model->type = rand();
-        Test_Assert::assertTrue($model->create(), 'Impossible to create Trade');
+        Test_Assert::assertTrue($model->create(), 'Impossible to create Advertisement');
     }
     
 }

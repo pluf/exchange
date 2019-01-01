@@ -4,8 +4,8 @@
 <!-- 		<testsuite name="Basic"> -->
 <!-- 			<directory>tests/Basic/</directory> -->
 <!-- 		</testsuite> -->
-		<testsuite name="Trade">
-			<directory>tests/Trade/</directory>
+		<testsuite name="Advertisement">
+			<directory>tests/Advertisement/</directory>
 		</testsuite>
 	</testsuites>
 

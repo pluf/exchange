@@ -1,6 +1,6 @@
 <?php
 
-class Exchange_Trade extends Pluf_Model
+class Exchange_Advertisement extends Pluf_Model
 {
 
     /**
@@ -11,8 +11,8 @@ class Exchange_Trade extends Pluf_Model
      */
     function init()
     {
-        $this->_a['table'] = 'exchange_trades';
-        $this->_a['verbose'] = 'Exchange_Trades';
+        $this->_a['table'] = 'exchange_advertisements';
+        $this->_a['verbose'] = 'Exchange_Advertisements';
         $this->_a['cols'] = array(
             'id' => array(
                 'type' => 'Pluf_DB_Field_Sequence',
@@ -90,14 +90,14 @@ class Exchange_Trade extends Pluf_Model
                 'readable' => true
             ),
             // relations
-            'trader_id' => array( // seller or buyer
+            'advertiser_id' => array( // seller or buyer
                 'type' => 'Pluf_DB_Field_Foreignkey',
                 'model' => 'User_Account',
                 'blank' => false,
                 'is_null' => false,
-                'name' => 'trader',
-                'relate_name' => 'trades',
-                'graphql_name' => 'trader',
+                'name' => 'advertiser',
+                'relate_name' => 'advertisements',
+                'graphql_name' => 'advertiser',
                 'editable' => false,
                 'readable' => true
             )

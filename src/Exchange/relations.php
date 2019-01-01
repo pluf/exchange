@@ -1,6 +1,6 @@
 <?php
 return array(
-    'Exchange_Trade' => array(
+    'Exchange_Advertisement' => array(
         // XXX: note: hadi, 1397-09: comment it if it cause to casecade deleting
         'relate_to' => array(
             'User_Account'
@@ -10,14 +10,14 @@ return array(
         // XXX: note: hadi, 1397-09: comment it if it cause to casecade deleting
         'relate_to' => array(
             'User_Account',
-            'Exchange_Trade'
+            'Exchange_Advertisement'
         )
     ),
-    'Exchange_Post' => array(
+    'Exchange_Comment' => array(
         // XXX: note: hadi, 1397-09: comment it if it cause to casecade deleting
         'relate_to' => array(
             'User_Account',
-            'Exchange_Trade'
+            'Exchange_Advertisement'
         )
     ),
 );

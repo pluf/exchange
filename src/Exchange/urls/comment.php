@@ -1,9 +1,9 @@
 <?php
 return array(
-    // ************************************************************* Offers of Trade
+    // ************************************************************* Offers of Advertisement
     array( // Create
-        'regex' => '#^/trades/(?P<parentId>\d+)/posts$#',
-        'model' => 'Exchange_Views_Post',
+        'regex' => '#^/advertisements/(?P<parentId>\d+)/comments$#',
+        'model' => 'Exchange_Views_Comment',
         'method' => 'create',
         'http-method' => 'POST',
         'precond' => array(
@@ -11,8 +11,8 @@ return array(
         )
     ),
     array( // Read (list)
-        'regex' => '#^/trades/(?P<parentId>\d+)/posts$#',
-        'model' => 'Exchange_Views_Post',
+        'regex' => '#^/advertisements/(?P<parentId>\d+)/comments$#',
+        'model' => 'Exchange_Views_Comment',
         'method' => 'find',
         'http-method' => 'GET',
         'precond' => array(
@@ -20,8 +20,8 @@ return array(
         )
     ),
     array( // Read
-        'regex' => '#^/trades/(?P<parentId>\d+)/posts/(?P<modelId>\d+)$#',
-        'model' => 'Exchange_Views_Post',
+        'regex' => '#^/advertisements/(?P<parentId>\d+)/comments/(?P<modelId>\d+)$#',
+        'model' => 'Exchange_Views_Comment',
         'method' => 'get',
         'http-method' => 'GET',
         'precond' => array(
@@ -29,8 +29,8 @@ return array(
         )
     ),
     array( // Update
-        'regex' => '#^/trades/(?P<parentId>\d+)/posts/(?P<modelId>\d+)$#',
-        'model' => 'Exchange_Views_Post',
+        'regex' => '#^/advertisements/(?P<parentId>\d+)/comments/(?P<modelId>\d+)$#',
+        'model' => 'Exchange_Views_Comment',
         'method' => 'update',
         'http-method' => 'POST',
         'precond' => array(
@@ -38,8 +38,8 @@ return array(
         ),
     ),
     array( // Delete
-        'regex' => '#^/trades/(?P<parentId>\d+)/posts/(?P<modelId>\d+)$#',
-        'model' => 'Exchange_Views_Post',
+        'regex' => '#^/advertisements/(?P<parentId>\d+)/comments/(?P<modelId>\d+)$#',
+        'model' => 'Exchange_Views_Comment',
         'method' => 'delete',
         'http-method' => 'DELETE',
         'precond' => array(

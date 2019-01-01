@@ -25,7 +25,7 @@ require_once 'Pluf.php';
  * @backupGlobals disabled
  * @backupStaticAttributes disabled
  */
-class Trade_RestTest extends TestCase
+class Advertisement_RestTest extends TestCase
 {
 
     var $client;
@@ -93,7 +93,7 @@ class Trade_RestTest extends TestCase
             )
         ));
         // login
-        $this->client->post('/user/login', array(
+        $this->client->comment('/user/login', array(
             'login' => 'test',
             'password' => 'test'
         ));
@@ -113,7 +113,7 @@ class Trade_RestTest extends TestCase
             'unit_price' => rand(),
             'type' => rand()
         );
-        $response = $this->client->post('/exchange/trades', $form);
+        $response = $this->client->comment('/exchange/advertisements', $form);
         $this->assertNotNull($response);
         $this->assertEquals($response->status_code, 200);
     }
@@ -124,7 +124,7 @@ class Trade_RestTest extends TestCase
      */
     public function getRestTest()
     {
-        $model = new Exchange_Trade();
+        $model = new Exchange_Advertisement();
         $model->lower_limit = rand();
         $model->upper_limit = rand();
         $model->source_currency = 'dollar';
@@ -132,9 +132,9 @@ class Trade_RestTest extends TestCase
         $model->unit_price = rand();
         $model->type = rand();
         $model->create();
-        Test_Assert::assertFalse($model->isAnonymous(), 'Could not create Exchange_Trade');
+        Test_Assert::assertFalse($model->isAnonymous(), 'Could not create Exchange_Advertisement');
         // Get item
-        $response = $this->client->get('/exchange/trades/' . $model->id);
+        $response = $this->client->get('/exchange/advertisements/' . $model->id);
         $this->assertNotNull($response);
         $this->assertEquals($response->status_code, 200);
     }
@@ -145,7 +145,7 @@ class Trade_RestTest extends TestCase
      */
     public function updateRestTest()
     {
-        $model = new Exchange_Trade();
+        $model = new Exchange_Advertisement();
         $model->lower_limit = rand();
         $model->upper_limit = rand();
         $model->source_currency = 'dollar';
@@ -153,13 +153,13 @@ class Trade_RestTest extends TestCase
         $model->unit_price = rand();
         $model->type = rand();
         $model->create();
-        Test_Assert::assertFalse($model->isAnonymous(), 'Could not create Exchange_Trade');
+        Test_Assert::assertFalse($model->isAnonymous(), 'Could not create Exchange_Advertisement');
         // Update item
         $form = array(
             'upper_limit' => rand(),
             'unit_price' => rand()
         );
-        $response = $this->client->post('/exchange/trades/' . $model->id, $form);
+        $response = $this->client->comment('/exchange/advertisements/' . $model->id, $form);
         $this->assertNotNull($response);
         $this->assertEquals($response->status_code, 200);
     }
@@ -170,7 +170,7 @@ class Trade_RestTest extends TestCase
      */
     public function deleteRestTest()
     {
-        $model = new Exchange_Trade();
+        $model = new Exchange_Advertisement();
         $model->lower_limit = rand();
         $model->upper_limit = rand();
         $model->source_currency = 'dollar';
@@ -178,10 +178,10 @@ class Trade_RestTest extends TestCase
         $model->unit_price = rand();
         $model->type = rand();
         $model->create();
-        Test_Assert::assertFalse($model->isAnonymous(), 'Could not create Exchange_Trade');
+        Test_Assert::assertFalse($model->isAnonymous(), 'Could not create Exchange_Advertisement');
 
         // delete
-        $response = $this->client->delete('/exchange/trades/' . $model->id);
+        $response = $this->client->delete('/exchange/advertisements/' . $model->id);
         $this->assertNotNull($response);
         $this->assertEquals($response->status_code, 200);
     }
@@ -192,7 +192,7 @@ class Trade_RestTest extends TestCase
      */
     public function findRestTest()
     {
-        $response = $this->client->get('/exchange/trades');
+        $response = $this->client->get('/exchange/advertisements');
         $this->assertNotNull($response);
         $this->assertEquals($response->status_code, 200);
     }
