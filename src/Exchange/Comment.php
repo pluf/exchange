@@ -104,17 +104,6 @@ class Exchange_Comment extends Pluf_Model
                 'editable' => false,
                 'readable' => true
             ),
-//             'receiver_id' => array(
-//                 'type' => 'Pluf_DB_Field_Foreignkey',
-//                 'model' => 'User_Account',
-//                 'blank' => false,
-//                 'is_null' => false,
-//                 'name' => 'receiver',
-//                 'relate_name' => 'received_comments',
-//                 'graphql_name' => 'receiver',
-//                 'editable' => true,
-//                 'readable' => true
-//             ),
             'offer_id' => array(
                 'type' => 'Pluf_DB_Field_Foreignkey',
                 'model' => 'Exchange_Offer',
