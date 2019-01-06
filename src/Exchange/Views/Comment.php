@@ -13,16 +13,14 @@ class Exchange_Views_Comment
         if(User_Precondition::isOwner($request)){            
             $pag->forced_where = new Pluf_SQL('advertisement_id=%s', $parent->id);
         }else{
-            $pag->forced_where = new Pluf_SQL('advertisement_id=%s AND (sender_id=%s OR receiver_id=%s)', array(
+            $pag->forced_where = new Pluf_SQL('advertisement_id=%s AND author_id=%s', array(
                 $parent->id,
-                $request->user->id,
                 $request->user->id
             ));
         }
         $pag->list_filters = array(
             'id',
-            'sender_id',
-            'receiver_id',
+            'author_id',
             'advertisement_id'
         );
         $search_fields = array(
@@ -30,8 +28,7 @@ class Exchange_Views_Comment
         );
         $sort_fields = array(
             'id',
-            'sender_id',
-            'receiver_id',
+            'author_id',
             'advertisement_id',
             'creation_dtime',
             'modif_dtime'
@@ -56,7 +53,7 @@ class Exchange_Views_Comment
         $form = Pluf_Shortcuts_GetFormForModel($object, $request->REQUEST);
         $object = $form->save(false);
         $object->advertisement_id = $parent;
-        $object->sender_id = $request->user;
+        $object->author_id = $request->user;
         $object->create();
         return $object;
     }

@@ -93,28 +93,28 @@ class Exchange_Comment extends Pluf_Model
                 'editable' => true,
                 'readable' => true
             ),
-            'sender_id' => array(
+            'author_id' => array(
                 'type' => 'Pluf_DB_Field_Foreignkey',
                 'model' => 'User_Account',
                 'blank' => false,
                 'is_null' => false,
-                'name' => 'sender',
-                'relate_name' => 'sent_comments',
-                'graphql_name' => 'sender',
+                'name' => 'author',
+                'relate_name' => 'comments',
+                'graphql_name' => 'author',
                 'editable' => false,
                 'readable' => true
             ),
-            'receiver_id' => array(
-                'type' => 'Pluf_DB_Field_Foreignkey',
-                'model' => 'User_Account',
-                'blank' => false,
-                'is_null' => false,
-                'name' => 'receiver',
-                'relate_name' => 'received_comments',
-                'graphql_name' => 'receiver',
-                'editable' => true,
-                'readable' => true
-            ),
+//             'receiver_id' => array(
+//                 'type' => 'Pluf_DB_Field_Foreignkey',
+//                 'model' => 'User_Account',
+//                 'blank' => false,
+//                 'is_null' => false,
+//                 'name' => 'receiver',
+//                 'relate_name' => 'received_comments',
+//                 'graphql_name' => 'receiver',
+//                 'editable' => true,
+//                 'readable' => true
+//             ),
             'offer_id' => array(
                 'type' => 'Pluf_DB_Field_Foreignkey',
                 'model' => 'Exchange_Offer',
