@@ -21,7 +21,6 @@ ALTER TABLE `exchange_comments` DROP INDEX `sender_id_foreignkey_idx`;
 CREATE INDEX `parent_id_foreignkey_idx` ON `exchange_comments`(`parent_id`);
 CREATE INDEX `author_id_foreignkey_idx` ON `exchange_comments`(`author_id`);
 CREATE INDEX `offer_id_foreignkey_idx` ON `exchange_comments`(`offer_id`);
-CREATE INDEX `parent_id_foreignkey_idx` ON `exchange_comments`(`parent_id`);
 
 
 ALTER TABLE `exchange_trades` DROP INDEX `trader_id_foreignkey_idx`;
