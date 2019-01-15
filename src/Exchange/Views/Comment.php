@@ -7,13 +7,13 @@ class Exchange_Views_Comment
 
     public static function find($request, $match)
     {
-        $parent = Pluf_Shortcuts_GetObjectOr404('Exchange_Advertisement', $match['parentId']);
+        $parent = Pluf_Shortcuts_GetObjectOr404('Exchange_Offer', $match['parentId']);
         $comment = new Exchange_Comment();
         $pag = new Pluf_Paginator($comment);
         if(User_Precondition::isOwner($request)){            
-            $pag->forced_where = new Pluf_SQL('advertisement_id=%s', $parent->id);
+            $pag->forced_where = new Pluf_SQL('offer_id=%s', $parent->id);
         }else{
-            $pag->forced_where = new Pluf_SQL('advertisement_id=%s AND author_id=%s', array(
+            $pag->forced_where = new Pluf_SQL('offer_id=%s AND author_id=%s', array(
                 $parent->id,
                 $request->user->id
             ));
@@ -21,7 +21,9 @@ class Exchange_Views_Comment
         $pag->list_filters = array(
             'id',
             'author_id',
-            'advertisement_id'
+            'offer_id',
+            'mime_type',
+            'media_type'
         );
         $search_fields = array(
             'message'
@@ -29,14 +31,16 @@ class Exchange_Views_Comment
         $sort_fields = array(
             'id',
             'author_id',
-            'advertisement_id',
+            'offer_id',
             'creation_dtime',
-            'modif_dtime'
+            'modif_dtime',
+            'mime_type',
+            'media_type'
         );
         $pag->items_per_page = Shop_Shortcuts_NormalizeItemPerPage($request);
         $pag->configure(array(), $search_fields, $sort_fields);
         $pag->setFromRequest($request);
-        return $pag->render_object();
+        return $pag;
     }
 
     /**
@@ -48,11 +52,11 @@ class Exchange_Views_Comment
      */
     public static function create($request, $match)
     {
-        $parent = Pluf_Shortcuts_GetObjectOr404('Exchange_Advertisement', $match['parentId']);
+        $parent = Pluf_Shortcuts_GetObjectOr404('Exchange_Offer', $match['parentId']);
         $object = new Exchange_Comment();
         $form = Pluf_Shortcuts_GetFormForModel($object, $request->REQUEST);
         $object = $form->save(false);
-        $object->advertisement_id = $parent;
+        $object->offer_id = $parent;
         $object->author_id = $request->user;
         $object->create();
         return $object;
@@ -60,10 +64,10 @@ class Exchange_Views_Comment
 
     public static function get($request, $match)
     {
-        $parent = Pluf_Shortcuts_GetObjectOr404('Exchange_Advertisement', $match['parentId']);
+        $parent = Pluf_Shortcuts_GetObjectOr404('Exchange_Offer', $match['parentId']);
         $comment = Pluf_Shortcuts_GetObjectOr404('Exchange_Comment', $match['modelId']);
-        if($comment->advertisement_id !== $parent->id){
-            throw new Pluf_HTTP_Error404('The Advertisement has no such Comment.');
+        if($comment->offer_id !== $parent->id){
+            throw new Pluf_HTTP_Error404('The Offer has no such Comment.');
         }
         if (self::canAccess($request, $comment))
             return $comment;
@@ -79,10 +83,10 @@ class Exchange_Views_Comment
      */
     public static function update($request, $match)
     {
-        $parent = Pluf_Shortcuts_GetObjectOr404('Exchange_Advertisement', $match['parentId']);
+        $parent = Pluf_Shortcuts_GetObjectOr404('Exchange_Offer', $match['parentId']);
         $comment = Pluf_Shortcuts_GetObjectOr404('Exchange_Comment', $match['modelId']);
-        if($comment->advertisement_id !== $parent->id){
-            throw new Pluf_HTTP_Error404('The Advertisement has no such Comment.');
+        if($comment->offer_id !== $parent->id){
+            throw new Pluf_HTTP_Error404('The Offer has no such Comment.');
         }
         if (self::canAccess($request, $comment)){
             $form = Pluf_Shortcuts_GetFormForUpdateModel($comment, $request->REQUEST);
@@ -94,13 +98,13 @@ class Exchange_Views_Comment
 
     public static function delete($request, $match)
     {
-        $parent = Pluf_Shortcuts_GetObjectOr404('Exchange_Advertisement', $match['parentId']);
+        $parent = Pluf_Shortcuts_GetObjectOr404('Exchange_Offer', $match['parentId']);
         $comment = Pluf_Shortcuts_GetObjectOr404('Exchange_Comment', $match['modelId']);
-        if($comment->advertisement_id !== $parent->id){
-            throw new Pluf_HTTP_Error404('The Advertisement has no such Comment.');
+        if($comment->offer_id !== $parent->id){
+            throw new Pluf_HTTP_Error404('The Offer has no such Comment.');
         }
         if (!User_Precondition::isOwner($request) || 
-            $request->user->id === $comment->get_sender()->id){
+            $request->user->id === $comment->get_author()->id){
             $comment->delete();
             return $comment;
         }

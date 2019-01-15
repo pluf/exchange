@@ -1,8 +1,8 @@
 <?php
 return array(
-    // ************************************************************* Offers of Advertisement
+    // ************************************************************* Comments of Offer
     array( // Create
-        'regex' => '#^/advertisements/(?P<parentId>\d+)/comments$#',
+        'regex' => '#^/offers/(?P<parentId>\d+)/comments$#',
         'model' => 'Exchange_Views_Comment',
         'method' => 'create',
         'http-method' => 'POST',
@@ -11,7 +11,7 @@ return array(
         )
     ),
     array( // Read (list)
-        'regex' => '#^/advertisements/(?P<parentId>\d+)/comments$#',
+        'regex' => '#^/offers/(?P<parentId>\d+)/comments$#',
         'model' => 'Exchange_Views_Comment',
         'method' => 'find',
         'http-method' => 'GET',
@@ -20,7 +20,7 @@ return array(
         )
     ),
     array( // Read
-        'regex' => '#^/advertisements/(?P<parentId>\d+)/comments/(?P<modelId>\d+)$#',
+        'regex' => '#^/offers/(?P<parentId>\d+)/comments/(?P<modelId>\d+)$#',
         'model' => 'Exchange_Views_Comment',
         'method' => 'get',
         'http-method' => 'GET',
@@ -29,7 +29,7 @@ return array(
         )
     ),
     array( // Update
-        'regex' => '#^/advertisements/(?P<parentId>\d+)/comments/(?P<modelId>\d+)$#',
+        'regex' => '#^/offers/(?P<parentId>\d+)/comments/(?P<modelId>\d+)$#',
         'model' => 'Exchange_Views_Comment',
         'method' => 'update',
         'http-method' => 'POST',
@@ -38,7 +38,7 @@ return array(
         ),
     ),
     array( // Delete
-        'regex' => '#^/advertisements/(?P<parentId>\d+)/comments/(?P<modelId>\d+)$#',
+        'regex' => '#^/offers/(?P<parentId>\d+)/comments/(?P<modelId>\d+)$#',
         'model' => 'Exchange_Views_Comment',
         'method' => 'delete',
         'http-method' => 'DELETE',

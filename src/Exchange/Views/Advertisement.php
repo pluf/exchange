@@ -15,7 +15,7 @@ class Exchange_Views_Advertisement
     {
         $user = $request->user;
         if (isset($user)) {
-            $request->REQUEST['advertisementr'] = $user->id;
+            $request->REQUEST['advertiser_id'] = $user->id;
         }
         $form = Pluf_Shortcuts_GetFormForModel(Pluf::factory('Exchange_Advertisement'), $request->REQUEST);
         /**
@@ -24,7 +24,7 @@ class Exchange_Views_Advertisement
          */
         $advertisement = $form->save();
         if (isset($user)) {
-            $advertisement->advertisementr_id = $user;
+            $advertisement->advertiser_id = $user;
         }
         $advertisement->update();
 //         $manager = $advertisement->getManager();
