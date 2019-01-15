@@ -14,9 +14,6 @@ class Exchange_Views_Advertisement
     public static function create($request, $match)
     {
         $user = $request->user;
-        if (isset($user)) {
-            $request->REQUEST['advertiser_id'] = $user->id;
-        }
         $form = Pluf_Shortcuts_GetFormForModel(Pluf::factory('Exchange_Advertisement'), $request->REQUEST);
         /**
          *
@@ -25,6 +22,9 @@ class Exchange_Views_Advertisement
         $advertisement = $form->save();
         if (isset($user)) {
             $advertisement->advertiser_id = $user;
+        }
+        if(isset($request->REQUEST['type'])){
+            $advertisement->type = $request->REQUEST['type'];
         }
         $advertisement->update();
 //         $manager = $advertisement->getManager();
