@@ -32,7 +32,7 @@ return array(
         'method' => 'addOffer',
         'http-method' => 'POST',
         'precond' => array(
-            'User_Precondition::ownerRequired'
+            'User_Precondition::loginRequired'
         ),
         'params' => array(
             'model' => 'Exchange_Offer',

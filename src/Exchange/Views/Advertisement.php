@@ -34,4 +34,6 @@ class Exchange_Views_Advertisement
 //         ));
         return $advertisement;
     }
+
+    
 }
