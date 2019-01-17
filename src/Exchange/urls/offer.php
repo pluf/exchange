@@ -1,5 +1,30 @@
 <?php
 return array(
+    // ************************************************************* Offer
+    array( // Read
+        'regex' => '#^/offers/(?P<modelId>\d+)$#',
+        'model' => 'Pluf_Views',
+        'method' => 'getObject',
+        'http-method' => 'GET',
+        'precond' => array(
+            // TODO: Add precondition to access offer by offerer and advertiser only.
+        ),
+        'params' => array(
+            'model' => 'Exchange_Offer'
+        )
+    ),
+//     array( // Delete
+//         'regex' => '#^/offers/(?P<modelId>\d+)$#',
+//         'model' => 'Pluf_Views',
+//         'method' => 'deleteObject',
+//         'http-method' => 'DELETE',
+//         'precond' => array(
+//             'User_Precondition::ownerRequired'
+//         ),
+//         'params' => array(
+//             'model' => 'Exchange_Offer'
+//         )
+//     ),
     // ************************************************************* Offers of Advertisement
     array( // Create
         'regex' => '#^/advertisements/(?P<parentId>\d+)/offers$#',
@@ -7,7 +32,7 @@ return array(
         'method' => 'addOffer',
         'http-method' => 'POST',
         'precond' => array(
-            'User_Precondition::ownerRequired'
+            'User_Precondition::loginRequired'
         ),
         'params' => array(
             'model' => 'Exchange_Offer',
