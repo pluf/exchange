@@ -8,7 +8,7 @@
 		"Exchange_Comment",
 		"Exchange_Admission",
 		"Exchange_Draft",
-		"Exchange_Day"
+		"Exchange_Day",
 		"Exchange_CurrencyRate"
 	],
 	"User_Role": [
