@@ -1,11 +1,28 @@
 {
-  "name": "SDP",
-  "version": "1",
-  "title": "Sell Digital Products System",
-  "model": [
+	"name": "SDP",
+	"version": "1",
+	"title": "Sell Digital Products System",
+	"model": [
 		"Exchange_Advertisement",
 		"Exchange_Offer",
-		"Exchange_Comment"
+		"Exchange_Comment",
+		"Exchange_Admission",
+		"Exchange_Draft",
+		"Exchange_Day"
+		"Exchange_CurrencyRate"
 	],
-	"permisson": []
+	"User_Role": [
+		{
+			"name": "Cambist",
+			"application": "exchange",
+			"code_name": "cambist",
+			"description": "Who is skilled in the science and practice of exchange"
+		},
+		{
+			"name": "Shroff",
+			"application": "exchange",
+			"code_name": "shroff",
+			"description": "Exchanger or money changer"
+		}
+	]
 }
