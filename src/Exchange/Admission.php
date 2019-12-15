@@ -32,7 +32,7 @@ class Exchange_Admission extends Pluf_Model
             ),
             'currency' => array(
                 'type' => 'Pluf_DB_Field_Varchar',
-                'is_null' => true,
+                'is_null' => false,
                 'size' => 16,
                 'editable' => true,
                 'readable' => true

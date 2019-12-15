@@ -25,7 +25,7 @@ class Exchange_Day extends Pluf_Model
             ),
             'date' => array(
                 'type' => 'Pluf_DB_Field_Date',
-                'is_null' => true,
+                'is_null' => false,
                 'unique' => true,
                 'editable' => true,
                 'readable' => true

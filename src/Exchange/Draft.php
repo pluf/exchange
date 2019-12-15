@@ -25,7 +25,8 @@ class Exchange_Draft extends Pluf_Model
             ),
             'reference_id' => array(
                 'type' => 'Pluf_DB_Field_Varchar',
-                'is_null' => true,
+                'is_null' => false,
+                'unique' => true,
                 'size' => 64,
                 'editable' => true,
                 'readable' => true
@@ -39,7 +40,7 @@ class Exchange_Draft extends Pluf_Model
             ),
             'currency' => array(
                 'type' => 'Pluf_DB_Field_Varchar',
-                'is_null' => true,
+                'is_null' => false,
                 'size' => 16,
                 'editable' => true,
                 'readable' => true
