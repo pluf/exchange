@@ -58,15 +58,4 @@ class Exchange_Admission extends Pluf_Model
         );
     }
 
-    /**
-     * @param $create حالت
-     *            ساخت یا به روز رسانی را تعیین می‌کند
-     */
-    function preSave($create = false)
-    {
-        if ($this->id == '' && $this->issue_date == '') {
-            $this->issue_date = gmdate('Y-m-d');
-        }
-    }
-    
 }

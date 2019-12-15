@@ -100,7 +100,7 @@ return array(
         'http-method' => 'POST',
         'params' => array(
             'model' => 'Exchange_Admission',
-            'parentModel' => 'Exchange_Day',
+            'parent' => 'Exchange_Day',
             'parentKey' => 'day_id'
         ),
         'precond' => array(
@@ -114,7 +114,7 @@ return array(
         'http-method' => 'GET',
         'params' => array(
             'model' => 'Exchange_Admission',
-            'parentModel' => 'Exchange_Day',
+            'parent' => 'Exchange_Day',
             'parentKey' => 'day_id'
         ),
         'precond' => array(
@@ -128,7 +128,7 @@ return array(
         'http-method' => 'GET',
         'params' => array(
             'model' => 'Exchange_Admission',
-            'parentModel' => 'Exchange_Day',
+            'parent' => 'Exchange_Day',
             'parentKey' => 'day_id'
         ),
         'precond' => array(
@@ -142,7 +142,7 @@ return array(
         'http-method' => 'POST',
         'params' => array(
             'model' => 'Exchange_Admission',
-            'parentModel' => 'Exchange_Day',
+            'parent' => 'Exchange_Day',
             'parentKey' => 'day_id'
         ),
         'precond' => array(
@@ -156,7 +156,7 @@ return array(
         'http-method' => 'DELETE',
         'params' => array(
             'model' => 'Exchange_Admission',
-            'parentModel' => 'Exchange_Day',
+            'parent' => 'Exchange_Day',
             'parentKey' => 'day_id'
         ),
         'precond' => array(
@@ -170,7 +170,7 @@ return array(
         'http-method' => 'DELETE',
         'params' => array(
             'model' => 'Exchange_Admission',
-            'parentModel' => 'Exchange_Day',
+            'parent' => 'Exchange_Day',
             'parentKey' => 'day_id'
         ),
         'precond' => array(
@@ -194,7 +194,7 @@ return array(
         'http-method' => 'POST',
         'params' => array(
             'model' => 'Exchange_Draft',
-            'parentModel' => 'Exchange_Day',
+            'parent' => 'Exchange_Day',
             'parentKey' => 'day_id'
         ),
         'precond' => array(
@@ -208,7 +208,7 @@ return array(
         'http-method' => 'GET',
         'params' => array(
             'model' => 'Exchange_Draft',
-            'parentModel' => 'Exchange_Day',
+            'parent' => 'Exchange_Day',
             'parentKey' => 'day_id'
         ),
         'precond' => array(
@@ -222,7 +222,7 @@ return array(
         'http-method' => 'GET',
         'params' => array(
             'model' => 'Exchange_Draft',
-            'parentModel' => 'Exchange_Day',
+            'parent' => 'Exchange_Day',
             'parentKey' => 'day_id'
         ),
         'precond' => array(
@@ -236,7 +236,7 @@ return array(
         'http-method' => 'POST',
         'params' => array(
             'model' => 'Exchange_Draft',
-            'parentModel' => 'Exchange_Day',
+            'parent' => 'Exchange_Day',
             'parentKey' => 'day_id'
         ),
         'precond' => array(
@@ -250,7 +250,7 @@ return array(
         'http-method' => 'DELETE',
         'params' => array(
             'model' => 'Exchange_Draft',
-            'parentModel' => 'Exchange_Day',
+            'parent' => 'Exchange_Day',
             'parentKey' => 'day_id'
         ),
         'precond' => array(
@@ -264,7 +264,7 @@ return array(
         'http-method' => 'DELETE',
         'params' => array(
             'model' => 'Exchange_Draft',
-            'parentModel' => 'Exchange_Day',
+            'parent' => 'Exchange_Day',
             'parentKey' => 'day_id'
         ),
         'precond' => array(

@@ -26,7 +26,8 @@ class Exchange_Day extends Pluf_Model
             'date' => array(
                 'type' => 'Pluf_DB_Field_Date',
                 'is_null' => true,
-                'editable' => false,
+                'unique' => true,
+                'editable' => true,
                 'readable' => true
             ),
             // relations
@@ -39,8 +40,8 @@ class Exchange_Day extends Pluf_Model
      */
     function preSave($create = false)
     {
-        if ($this->id == '' && $this->day == '') {
-            $this->day = gmdate('Y-m-d');
+        if ($this->id == '' && $this->date == '') {
+            $this->date = gmdate('Y-m-d');
         }
     }
     
