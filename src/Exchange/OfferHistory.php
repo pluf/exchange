@@ -6,7 +6,7 @@
  * @author hadi <mohammad.hadi.mansouri@dpq.co.ir>
  *
  */
-class DigiDoci_RequestHistory extends Pluf_Model
+class Exchange_OfferHistory extends Pluf_Model
 {
 
     /**
@@ -16,8 +16,8 @@ class DigiDoci_RequestHistory extends Pluf_Model
      */
     function init()
     {
-        $this->_a['table'] = 'digidoci_requesthistory';
-        $this->_a['verbose'] = 'DigiDoci Request History';
+        $this->_a['table'] = 'exchange_offer_history';
+        $this->_a['verbose'] = 'Exchange Offer History';
         $this->_a['cols'] = array(
             'id' => array(
                 'type' => 'Pluf_DB_Field_Sequence',
@@ -78,19 +78,21 @@ class DigiDoci_RequestHistory extends Pluf_Model
 //                 'readable' => true
 //             ),
             // relations
-            'request' => array(
+            'offer_id' => array(
                 'type' => 'Pluf_DB_Field_Foreignkey',
-                'model' => 'DigiDoci_Request',
+                'model' => 'Exchange_Offer',
                 'blank' => false,
-                'relate_name' => 'request_requesthistory',
+                'name' => 'offer',
+                'graphql_name' => 'offer',
+                'relate_name' => 'histories',
                 'editable' => false,
                 'readable' => true
             )
         );
         
         $this->_a['idx'] = array(
-            'requesthistory_idx' => array(
-                'col' => 'request',
+            'offer_history_idx' => array(
+                'col' => 'offer_id',
                 'type' => 'normal', // normal, unique, fulltext, spatial
                 'index_type' => '', // hash, btree
                 'index_option' => '',
