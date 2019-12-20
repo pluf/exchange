@@ -20,4 +20,14 @@ return array(
             'Exchange_Advertisement'
         )
     ),
+    'Exchange_Admission' => array(
+        'relate_to' => array(
+            'Exchange_Day'
+        )
+    ),
+    'Exchange_Draft' => array(
+        'relate_to' => array(
+            'Exchange_Day'
+        )
+    ),
 );

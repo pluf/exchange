@@ -30,7 +30,7 @@ class Basic_DataModelTest extends TestCase
     /**
      * @before
      */
-    public function setUp ()
+    public function setUpTest ()
     {
         Pluf::start(__DIR__. '/../conf/config.php');
     }
@@ -44,8 +44,20 @@ class Basic_DataModelTest extends TestCase
         $this->assertTrue(isset($object), 'Exchange_Advertisement could not be created!');
         $object = new Exchange_Offer();
         $this->assertTrue(isset($object), 'Exchange_Offer could not be created!');
+//         $object = new Exchange_OfferHistory();
+//         $this->assertTrue(isset($object), 'Exchange_OfferHistory could not be created!');
+//         $object = new Exchange_OfferMetadata();
+//         $this->assertTrue(isset($object), 'Exchange_OfferMetadata could not be created!');
         $object = new Exchange_Comment();
         $this->assertTrue(isset($object), 'Exchange_Comment could not be created!');
+        $object = new Exchange_Day();
+        $this->assertTrue(isset($object), 'Exchange_Day could not be created!');
+        $object = new Exchange_Admission();
+        $this->assertTrue(isset($object), 'Exchange_Admission could not be created!');
+        $object = new Exchange_Draft();
+        $this->assertTrue(isset($object), 'Exchange_Draft could not be created!');
+        $object = new Exchange_CurrencyRate();
+        $this->assertTrue(isset($object), 'Exchange_CurrencyRate could not be created!');
     }
 }
 
