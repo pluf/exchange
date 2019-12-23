@@ -1,6 +1,6 @@
 CREATE TABLE `exchange_days` (
   `id` mediumint(9) unsigned NOT NULL AUTO_INCREMENT,
-  `date` date NOT NULL DEFAULT '0000-00-00',
+  `date` date NOT NULL,
   `tenant` mediumint(9) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   UNIQUE KEY `date_unique_idx` (`tenant`,`date`),
@@ -38,7 +38,7 @@ CREATE TABLE `exchange_currency_rates` (
   `source_currency` varchar(64) NOT NULL DEFAULT '',
   `dest_currency` varchar(64) NOT NULL DEFAULT '',
   `rate` decimal(32,8) NOT NULL DEFAULT 1.00000000,
-  `modif_dtime` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `modif_dtime` datetime NOT NULL,
   `tenant` mediumint(9) unsigned NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY `tenant_foreignkey_idx` (`tenant`)
